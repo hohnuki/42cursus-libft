@@ -1,18 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isascii.c                                       :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hohnuki <hohnuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/06 13:12:30 by hohnuki           #+#    #+#             */
-/*   Updated: 2021/10/06 14:36:02 by hohnuki          ###   ########.fr       */
+/*   Created: 2021/10/06 15:59:47 by hohnuki           #+#    #+#             */
+/*   Updated: 2021/10/06 16:40:12 by hohnuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isascii(int c)
+void	*ft_memmove(void *s1, const void *s2, int size)
 {
-	if (!(c >= 0 && c <= 127))
-		return (0);
-	return (1);
+	int				i;
+	unsigned char	*ptr1;
+	unsigned char	*ptr2;
+
+	i = 0;
+	ptr1 = (unsigned char *)s1;
+	ptr2 = (unsigned char *)s2;
+	while (i < size)
+	{
+		ptr1[i] = ptr2[i];
+		i++;
+	}
+	return (s1);
 }

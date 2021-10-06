@@ -1,18 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isascii.c                                       :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hohnuki <hohnuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/06 13:12:30 by hohnuki           #+#    #+#             */
-/*   Updated: 2021/10/06 14:36:02 by hohnuki          ###   ########.fr       */
+/*   Created: 2021/10/06 15:20:26 by hohnuki           #+#    #+#             */
+/*   Updated: 2021/10/06 15:47:36 by hohnuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isascii(int c)
+void	ft_bzero(void *s, int n)
 {
-	if (!(c >= 0 && c <= 127))
-		return (0);
-	return (1);
+	int				i;
+	unsigned char	*ptr;
+
+	i = 0;
+	ptr = (unsigned char *)s;
+	while (i < n)
+	{
+		ptr[i] = '\0';
+		i++;
+	}
+	return (s);
 }

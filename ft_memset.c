@@ -1,18 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isascii.c                                       :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hohnuki <hohnuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/06 13:12:30 by hohnuki           #+#    #+#             */
-/*   Updated: 2021/10/06 14:36:02 by hohnuki          ###   ########.fr       */
+/*   Created: 2021/10/06 14:47:57 by hohnuki           #+#    #+#             */
+/*   Updated: 2021/10/06 15:31:28 by hohnuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isascii(int c)
+void	*ft_memset(void *str, int c, int size)
 {
-	if (!(c >= 0 && c <= 127))
-		return (0);
-	return (1);
+	int				i;
+	unsigned char	*ptr;
+	unsigned char	value;
+
+	i = 0;
+	ptr = (unsigned char *)str;
+	value = (unsigned char)c;
+	while (i < size)
+	{
+		ptr[i] = value;
+		i++;
+	}
+	return (str);
 }

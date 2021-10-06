@@ -1,18 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isascii.c                                       :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hohnuki <hohnuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/06 13:12:30 by hohnuki           #+#    #+#             */
-/*   Updated: 2021/10/06 14:36:02 by hohnuki          ###   ########.fr       */
+/*   Created: 2021/10/06 15:43:10 by hohnuki           #+#    #+#             */
+/*   Updated: 2021/10/06 16:37:32 by hohnuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isascii(int c)
+void	*ft_memcpy(void *buf1, const void *buf2, int n)
 {
-	if (!(c >= 0 && c <= 127))
-		return (0);
-	return (1);
+	int				i;
+	unsigned char	*ptr1;
+	unsigned char	*ptr2;
+
+	i = 0;
+	ptr1 = (unsigned char *)buf1;
+	ptr2 = (unsigned char *)buf2;
+	while (i < n)
+	{
+		ptr1[i] = ptr2[i];
+		i++;
+	}
+	return (buf1);
 }

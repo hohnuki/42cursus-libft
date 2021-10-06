@@ -1,18 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isascii.c                                       :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hohnuki <hohnuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/06 13:12:30 by hohnuki           #+#    #+#             */
-/*   Updated: 2021/10/06 14:36:02 by hohnuki          ###   ########.fr       */
+/*   Created: 2021/10/06 16:41:23 by hohnuki           #+#    #+#             */
+/*   Updated: 2021/10/06 17:04:21 by hohnuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isascii(int c)
+int	ft_strlcpy(char *dest, char *src, unsigned int size)
 {
-	if (!(c >= 0 && c <= 127))
-		return (0);
-	return (1);
+	unsigned int	i;
+	int				count;
+
+	i = 0;
+	count = 0;
+	while (i < (size - 1) && src[i] != '\0')
+	{
+		dest[i] = src[i];
+		i++;
+		count++;
+	}
+	while (i < size)
+	{
+		dest[i] = '\0';
+		i++;
+	}
+	return (count);
 }

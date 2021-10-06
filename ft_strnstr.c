@@ -1,18 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isascii.c                                       :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hohnuki <hohnuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/06 13:12:30 by hohnuki           #+#    #+#             */
-/*   Updated: 2021/10/06 14:36:02 by hohnuki          ###   ########.fr       */
+/*   Created: 2021/10/06 20:41:54 by hohnuki           #+#    #+#             */
+/*   Updated: 2021/10/06 20:52:00 by hohnuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isascii(int c)
+char *strnstr(const char *s1, const char *s2, int size)
 {
-	if (!(c >= 0 && c <= 127))
-		return (0);
-	return (1);
+	int i;
+
+	i = 0;
+	if (s2[0] == '\0' || size <= 0)
+		return (s1);
+	while (s1[i] == '\0' && size >= 0)
+	{
+		i++;
+		size--;
+	}
+	return (0);
 }
