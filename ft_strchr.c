@@ -6,9 +6,11 @@
 /*   By: hohnuki <hohnuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 18:28:18 by hohnuki           #+#    #+#             */
-/*   Updated: 2021/10/06 19:24:59 by hohnuki          ###   ########.fr       */
+/*   Updated: 2021/10/07 19:00:23 by hohnuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 char	*ft_strchr(const char *s, int c)
 {

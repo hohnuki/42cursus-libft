@@ -6,9 +6,11 @@
 /*   By: hohnuki <hohnuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 13:12:22 by hohnuki           #+#    #+#             */
-/*   Updated: 2021/10/06 14:26:38 by hohnuki          ###   ########.fr       */
+/*   Updated: 2021/10/07 18:09:39 by hohnuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int	ft_isalpha(int c)
 {

@@ -6,21 +6,13 @@
 /*   By: hohnuki <hohnuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 15:20:26 by hohnuki           #+#    #+#             */
-/*   Updated: 2021/10/06 15:47:36 by hohnuki          ###   ########.fr       */
+/*   Updated: 2021/10/07 18:28:04 by hohnuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_bzero(void *s, int n)
-{
-	int				i;
-	unsigned char	*ptr;
+#include "libft.h"
 
-	i = 0;
-	ptr = (unsigned char *)s;
-	while (i < n)
-	{
-		ptr[i] = '\0';
-		i++;
-	}
-	return (s);
+void	ft_bzero(void *s, size_t n)
+{
+	ft_memset(s, '\0', n);
 }

@@ -6,9 +6,11 @@
 /*   By: hohnuki <hohnuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 13:38:17 by hohnuki           #+#    #+#             */
-/*   Updated: 2021/10/06 14:39:47 by hohnuki          ###   ########.fr       */
+/*   Updated: 2021/10/07 18:14:30 by hohnuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int	ft_isprint(int c)
 {

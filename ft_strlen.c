@@ -6,11 +6,13 @@
 /*   By: hohnuki <hohnuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 14:42:53 by hohnuki           #+#    #+#             */
-/*   Updated: 2021/10/06 14:45:58 by hohnuki          ###   ########.fr       */
+/*   Updated: 2021/10/07 17:49:47 by hohnuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(const char *str)
+#include "libft.h"
+
+size_t	ft_strlen(const char *str)
 {
 	int	i;
 

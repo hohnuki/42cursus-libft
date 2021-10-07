@@ -6,14 +6,16 @@
 /*   By: hohnuki <hohnuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 17:08:12 by hohnuki           #+#    #+#             */
-/*   Updated: 2021/10/06 17:10:51 by hohnuki          ###   ########.fr       */
+/*   Updated: 2021/10/07 18:56:50 by hohnuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	*ft_strlcat(char *dest, const char *src, unsigned int n)
+#include "libft.h"
+
+size_t	ft_strlcat(char *dest, const char *src, size_t n)
 {
-	unsigned int	i;
-	unsigned int	j;
+	int	i;
+	int	j;
 
 	i = 0;
 	j = 0;
@@ -23,12 +25,12 @@ int	*ft_strlcat(char *dest, const char *src, unsigned int n)
 	{
 		i++;
 	}
-	while (j < (n - 1) && src[j] != '\0')
+	while (j < (int)(n - 1) && src[j] != '\0')
 	{
 		dest[i] = src[j];
 		i++;
 		j++;
 	}
 	dest[i] = '\0';
-	return (j);
+	return ((size_t)j);
 }
