@@ -6,7 +6,7 @@
 /*   By: hohnuki <hohnuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 20:20:32 by hohnuki           #+#    #+#             */
-/*   Updated: 2021/10/07 19:11:37 by hohnuki          ###   ########.fr       */
+/*   Updated: 2021/10/07 20:27:51 by hohnuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_memcmp(const void *s1, const void *s2, size_t size)
 {
-	int	i;
+	int				i;
 	unsigned char	*ptr1;
 	unsigned char	*ptr2;
 

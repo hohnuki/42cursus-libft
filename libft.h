@@ -6,7 +6,7 @@
 /*   By: hohnuki <hohnuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 16:25:10 by hohnuki           #+#    #+#             */
-/*   Updated: 2021/10/07 19:16:53 by hohnuki          ###   ########.fr       */
+/*   Updated: 2021/10/07 21:08:13 by hohnuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,8 @@ int		ft_memcmp(const void *s1, const void *s2, size_t size);
 char	*ft_strnstr(const char *s1, const char *s2, size_t size);
 void	*ft_calloc(size_t n, size_t size);
 char	*ft_strcpy(char *s1, const char *s2);
+char	*ft_substr(const char *s, unsigned int start, size_t len);
+char	*ft_strjoin(const char *s1, const char *s2);
+char	*ft_strtrim(const char *s1, const char *set);
 
 #endif
