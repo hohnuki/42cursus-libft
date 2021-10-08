@@ -1,41 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hohnuki <hohnuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/07 20:56:18 by hohnuki           #+#    #+#             */
-/*   Updated: 2021/10/08 16:51:46 by hohnuki          ###   ########.fr       */
+/*   Created: 2021/10/08 15:46:13 by hohnuki           #+#    #+#             */
+/*   Updated: 2021/10/08 17:42:29 by hohnuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
-char	*ft_strtrim(const char *s1, const char *set)
+char	**ft_split(const char *s, char c)
 {
-	char	*str;
-	int		s1_i;
-	int		set_i;
-	int		str_i;
+	int i;
+	int ptr_i;
+	int count;
+	char *ptr;
+	char *p;
 
-	str = (char *)malloc(sizeof(char) * ft_strlen(s1));
-	if (str == NULL)
-		return (0);
-	s1_i = 0;
-	str_i = 0;
-	while (s1[s1_i] != '\0')
+	i = 0;
+	ptr_i = 0;
+	count = 0;
+	ptr = NULL;
+	p = NULL;
+
+	ptr = (char *)malloc(sizeof(char ) * 10);
+	p = (char *)s;
+	while (s[i] != '\0')
 	{
-		set_i = 0;
-		while (set[set_i] != '\0')
+		if (s[i] == c)
 		{
-			if (set[set_i] == s1[s1_i])
-				break ;
-			set_i++;
+			p[i] = '\0';
+			printf("%s\n", p);
+			ptr[ptr_i] = p;
+			printf("ptr[%d] == %c, s[count] == %c\n", ptr_i, ptr[ptr_i], s[count]);
+			ptr_i++;
 		}
-		if (set[set_i] == '\0')
-			str[str_i++] = s1[s1_i];
-		s1_i++;
+		i++;
 	}
-	return (str);
+	return ((char **)ptr);
 }
