@@ -6,40 +6,38 @@
 /*   By: hohnuki <hohnuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 15:46:13 by hohnuki           #+#    #+#             */
-/*   Updated: 2021/10/08 17:42:29 by hohnuki          ###   ########.fr       */
+/*   Updated: 2021/10/11 20:54:00 by hohnuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 char	**ft_split(const char *s, char c)
 {
-	int i;
-	int ptr_i;
-	int count;
-	char *ptr;
-	char *p;
+	int	start;
+	char	**split;
+	char	*tmp;
+	unsigned int	i;
+	unsigned int	j;
 
+	split = ft_calloc(sizeof(char *), ft_strlen(s) + 1);
+	if (!split)
+		return (NULL);
+	start = -1;
 	i = 0;
-	ptr_i = 0;
-	count = 0;
-	ptr = NULL;
-	p = NULL;
-
-	ptr = (char *)malloc(sizeof(char ) * 10);
-	p = (char *)s;
-	while (s[i] != '\0')
+	j = 0;
+	while (i++ <= ft_strlen(s))
 	{
-		if (s[i] == c)
+		if (s[i] != c && start < 0)
+			start = i;
+		else if((s[i] == c || i == ft_strlen(s)) && start >= 0)
 		{
-			p[i] = '\0';
-			printf("%s\n", p);
-			ptr[ptr_i] = p;
-			printf("ptr[%d] == %c, s[count] == %c\n", ptr_i, ptr[ptr_i], s[count]);
-			ptr_i++;
+			tmp = ft_word_cut(s, start, i);
+			if (!tmp)
+				return (ft_freeall(split));
+			split[j++] = tmp;
+			start = -1;
 		}
-		i++;
 	}
-	return ((char **)ptr);
+	return (split);
 }

@@ -1,45 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_split_test.c                                    :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hohnuki <hohnuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/08 17:21:04 by hohnuki           #+#    #+#             */
-/*   Updated: 2021/10/11 20:18:17 by hohnuki          ###   ########.fr       */
+/*   Created: 2021/10/11 19:43:29 by hohnuki           #+#    #+#             */
+/*   Updated: 2021/10/11 19:46:35 by hohnuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
-char	**ft_split(const char *s, char c)
+void	ft_putstr_fd(char *s, int fd)
 {
-	int i;
-	int ptr_i;
-	int count;
-	char *ptr;
-	char *p;
+	int	i;
 
 	i = 0;
-	ptr_i = 0;
-	count = 0;
-	ptr = NULL;
-	p = NULL;
-
-	ptr = (char *)malloc(sizeof(char ) * 10);
-	p = (char *)s;
 	while (s[i] != '\0')
 	{
-		if (s[i] == c)
-		{
-			p[i] = '\0';
-			printf("%s\n", p);
-			ptr[ptr_i] = p;
-			printf("ptr[%d] == %c, s[count] == %c\n", ptr_i, ptr[ptr_i], s[count]);
-			ptr_i++;
-		}
+		write(fd, &s[i], 1);
 		i++;
 	}
-	return ((char **)ptr);
 }
