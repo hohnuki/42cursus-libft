@@ -6,7 +6,7 @@
 /*   By: hohnuki <hohnuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 15:59:47 by hohnuki           #+#    #+#             */
-/*   Updated: 2021/10/07 18:32:31 by hohnuki          ###   ########.fr       */
+/*   Updated: 2021/10/14 13:38:00 by hohnuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ void	*ft_memmove(void *s1, const void *s2, size_t size)
 	i = 0;
 	ptr1 = (unsigned char *)s1;
 	ptr2 = (unsigned char *)s2;
+	if (!ptr1 && !ptr2)
+		return (NULL);
 	while (i < (int)size)
 	{
 		ptr1[i] = ptr2[i];

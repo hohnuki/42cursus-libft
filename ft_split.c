@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ohnukihiroki <ohnukihiroki@student.42.f    +#+  +:+       +#+        */
+/*   By: hohnuki <hohnuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 15:46:13 by hohnuki           #+#    #+#             */
-/*   Updated: 2021/10/13 21:08:46 by ohnukihirok      ###   ########.fr       */
+/*   Updated: 2021/10/14 12:52:55 by hohnuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ char	*str_cutter(const char	*s, int start, int end)
 	ptr[i] = '\0';
 	return (ptr);
 }
+
 char	**ft_split(const char *s, char c)
 {
 	char	**split;
@@ -78,6 +79,6 @@ char	**ft_split(const char *s, char c)
 		}
 		i++;
 	}
-	split[j] = (char *)'\0';
+	split[j] = (char *) '\0';
 	return (split);
 }
