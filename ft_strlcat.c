@@ -6,7 +6,7 @@
 /*   By: hohnuki <hohnuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 17:08:12 by hohnuki           #+#    #+#             */
-/*   Updated: 2021/10/07 18:56:50 by hohnuki          ###   ########.fr       */
+/*   Updated: 2021/10/14 14:24:44 by hohnuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ size_t	ft_strlcat(char *dest, const char *src, size_t n)
 	i = 0;
 	j = 0;
 	if (n == 0)
-		return (dest);
+		return ((size_t)dest);
 	while (dest[i] != '\0')
 	{
 		i++;
