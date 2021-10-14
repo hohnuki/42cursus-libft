@@ -6,27 +6,34 @@
 /*   By: hohnuki <hohnuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 15:59:47 by hohnuki           #+#    #+#             */
-/*   Updated: 2021/10/14 13:38:00 by hohnuki          ###   ########.fr       */
+/*   Updated: 2021/10/14 17:06:59 by hohnuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *s1, const void *s2, size_t size)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
 	int				i;
 	unsigned char	*ptr1;
 	unsigned char	*ptr2;
 
 	i = 0;
-	ptr1 = (unsigned char *)s1;
-	ptr2 = (unsigned char *)s2;
+	ptr1 = (unsigned char *)dst;
+	ptr2 = (unsigned char *)src;
 	if (!ptr1 && !ptr2)
 		return (NULL);
-	while (i < (int)size)
+	if (dst > src)
 	{
-		ptr1[i] = ptr2[i];
-		i++;
+		while ((int)len > 0)
+		{
+			ptr1[len - 1] = ptr2[len - 1];
+			len--;
+		}
 	}
-	return (s1);
+	else
+	{
+		ft_memcpy(dst, src, len);
+	}
+	return (dst);
 }
