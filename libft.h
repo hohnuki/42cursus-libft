@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hohnuki <hohnuki@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ohnukihiroki <ohnukihiroki@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 16:25:10 by hohnuki           #+#    #+#             */
-/*   Updated: 2021/10/14 16:12:36 by hohnuki          ###   ########.fr       */
+/*   Updated: 2021/10/14 23:34:23 by ohnukihirok      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	ft_bzero(void *s, size_t n);
 void	*ft_memcpy(void *buf1, const void *buf2, size_t n);
 void	*ft_memmove(void *dst, const void *src, size_t len);
 size_t	ft_strlcpy(char *dest, char *src, size_t size);
-size_t	ft_strlcat(char *dest, const char *src, size_t n);
+size_t	ft_strlcat(char *dest, const char *src, size_t destsize);
 int		ft_toupper(int c);
 int		ft_tolower(int c);
 char	*ft_strchr(const char *s, int c);
