@@ -3,39 +3,36 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ohnukihiroki <ohnukihiroki@student.42.f    +#+  +:+       +#+        */
+/*   By: hohnuki <hohnuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 17:08:12 by hohnuki           #+#    #+#             */
-/*   Updated: 2021/10/15 00:14:06 by ohnukihirok      ###   ########.fr       */
+/*   Updated: 2021/10/15 18:37:42 by hohnuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 size_t	ft_strlcat(char *dest, const char *src, size_t destsize)
 {
-	size_t	i;
-	size_t	j;
+	int	i;
+	int	ans;
+	int	dest_len;
+	int	src_len;
+	int	first_dest_len;
 
 	i = 0;
-	while (dest[i] != '\0')
-		i++;
-	j = 0;
-	while (src[j] != '\0' || j < (destsize - i - 1))
+	ans = 0;
+	dest_len = (int)ft_strlen(dest);
+	src_len = (int)ft_strlen(src);
+	first_dest_len = dest_len;
+	if (dest_len >= (int)destsize || !destsize)
+		ans = src_len + (int)destsize;
+	else
+		ans = dest_len + src_len;
+	while (src[i] != '\0' && i < (int)destsize - first_dest_len - 1)
 	{
-		dest[i] = src[j];
-		i++;
-		j++;
+		dest[dest_len++] = src[i++];
 	}
-	dest[i] = '\0';
-	return (ft_strlen(src) + destsize);
+	dest[dest_len] = '\0';
+	return ((size_t)ans);
 }
-
-// #include <string.h>
-
-// int main(void)
-// {
-// 	printf("%d\n", (int)strlcat("abcdefg", "abcdefgh", 7));
-// 	printf("%d\n", (int)ft_strlcat("abcdefg", "abcdefgh", 7));
-// }
