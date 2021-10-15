@@ -6,7 +6,7 @@
 /*   By: hohnuki <hohnuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 14:51:33 by hohnuki           #+#    #+#             */
-/*   Updated: 2021/10/07 19:17:16 by hohnuki          ###   ########.fr       */
+/*   Updated: 2021/10/15 19:36:23 by hohnuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,24 @@
 int	ft_atoi(const char *str)
 {
 	int	i;
-	int	num;
+	int	nagative_count;
+	int	ans;
 
 	i = 0;
-	num = 0;
-	while (str[i] != '\0' && (str[i] >= '0' && str[i] <= '9'))
+	nagative_count = 0;
+	ans = 0;
+	while (str[i] == '\t' || str[i] == '\n' || str[i] == '\v'
+		|| str[i] == '\f' || str[i] == '\r' || str[i] == ' ')
+		i++;
+	while (str[i] == '+' || str[i] == '-')
 	{
-		num += str[i] - '0';
-		num *= 10;
+		if (str[i] == '-')
+			nagative_count++;
 		i++;
 	}
-	num /= 10;
-	return (num);
+	while (str[i] >= '0' && str[i] <= '9')
+		ans = (ans * 10) + ((str[i++] - '0'));
+	if (nagative_count % 2 == 1)
+		ans *= -1;
+	return (ans);
 }

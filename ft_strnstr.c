@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ohnukihiroki <ohnukihiroki@student.42.f    +#+  +:+       +#+        */
+/*   By: hohnuki <hohnuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 20:41:54 by hohnuki           #+#    #+#             */
-/*   Updated: 2021/10/15 00:22:26 by ohnukihirok      ###   ########.fr       */
+/*   Updated: 2021/10/15 19:00:17 by hohnuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,7 @@ char	*ft_strnstr(const char *s1, const char *s2, size_t size)
 
 	p1 = s1;
 	p2 = s2;
-	
-	while (*p1 && *p2 && size >= 0)
+	while (*p1 && *p2 && (int)size >= 1)
 	{
 		if (*p1 == *p2)
 		{
@@ -38,25 +37,4 @@ char	*ft_strnstr(const char *s1, const char *s2, size_t size)
 		return (0);
 	else
 		return ((char *)(p1 - (p2 - s2)));
-}
-
-#include <stdio.h>
-#include <string.h>
-int main(void)
-{
-    char* p1 = ft_strnstr( "abcdcba", "cd" , 3);
-    if( p1 == NULL ){
-        puts( "見つからない。" );
-    }
-    else{
-        puts( p1 );
-    }
-		char* p2 = strnstr( "abcdcba", "cd" , 3);
-    if( p2 == NULL ){
-        puts( "見つからない。" );
-    }
-    else{
-        puts( p2 );
-    }
-    return 0;
 }
