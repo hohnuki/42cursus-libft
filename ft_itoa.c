@@ -3,14 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hohnuki <hohnuki@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ohnukihiroki <ohnukihiroki@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 17:45:17 by hohnuki           #+#    #+#             */
-/*   Updated: 2021/10/11 14:26:16 by hohnuki          ###   ########.fr       */
+/*   Updated: 2021/10/18 00:36:06 by ohnukihirok      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+char *set_int_min(char *str)
+{
+	str = (char *)malloc(sizeof(char) * 13);
+	str= "-2147483648\0";
+	return (str);
+}
 
 int	int_len(int n)
 {
@@ -53,6 +60,7 @@ char	*reverse_str(char *str, int len)
 			len--;
 		}
 	}
+	tmp[i] = '\0';
 	return (tmp);
 }
 
@@ -68,7 +76,17 @@ char	*ft_itoa(int n)
 	len = int_len(n);
 	max = int_len(n);
 	str = (char *)malloc(sizeof(char) * (len + 1));
-	if (n < 0)
+	if (n == -0)
+	{
+		str[0] = '0';
+		str[1] = '\0';
+		return (str);
+	}
+	else if (n == -2147483648)
+	{
+		return (set_int_min(str));
+	}
+	else if (n < 0)
 	{
 		str[i] = '-';
 		n *= -1;
@@ -83,3 +101,25 @@ char	*ft_itoa(int n)
 	}
 	return (reverse_str(str, max));
 }
+
+//test4
+// #include <stdio.h>
+// int main(void)
+// {
+// 	char	*i1 = ft_itoa(-2147483648);
+	
+// 	printf("%s\n", i1);
+// }
+
+//test1
+// #include <stdio.h>
+// int main(void)
+// {
+// 	char	*i1 = ft_itoa(-623);
+// 	char	*i2 = ft_itoa(156);
+// 	char	*i3 = ft_itoa(-0);
+
+// 	printf("%s\n", i1);
+// 	printf("%s\n", i2);
+// 	printf("%s\n", i3);
+// }

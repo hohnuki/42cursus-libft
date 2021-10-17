@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hohnuki <hohnuki@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ohnukihiroki <ohnukihiroki@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 19:52:27 by hohnuki           #+#    #+#             */
-/*   Updated: 2021/10/11 19:58:05 by hohnuki          ###   ########.fr       */
+/*   Updated: 2021/10/18 00:38:50 by ohnukihirok      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	ft_putnbr_fd(int nb, int fd)
 	int	num;
 
 	num = 0;
+	if (fd < 0)
+		return ;
 	if (nb < 0)
 	{
 		ft_putchar_fd('-', fd);

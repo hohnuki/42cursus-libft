@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hohnuki <hohnuki@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ohnukihiroki <ohnukihiroki@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 15:46:13 by hohnuki           #+#    #+#             */
-/*   Updated: 2021/10/14 12:52:55 by hohnuki          ###   ########.fr       */
+/*   Updated: 2021/10/18 00:47:50 by ohnukihirok      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,10 @@ char	**ft_split(const char *s, char c)
 	i = 0;
 	j = 0;
 	start = -1;
+	if (!s)
+		return (NULL);
 	split = (char **)malloc(sizeof(char *) * (str_separate_count(s, c) + 1));
-	if (!split || !s)
+	if (!split)
 		return (NULL);
 	while (i <= (int)ft_strlen(s))
 	{
