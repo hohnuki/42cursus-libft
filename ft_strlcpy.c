@@ -6,7 +6,7 @@
 /*   By: hohnuki <hohnuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 16:41:23 by hohnuki           #+#    #+#             */
-/*   Updated: 2021/10/14 19:31:23 by hohnuki          ###   ########.fr       */
+/*   Updated: 2021/10/18 18:54:32 by hohnuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,19 @@
 
 size_t	ft_strlcpy(char *dest, char *src, size_t size)
 {
-	int	i;
-	int	count;
+	size_t	i;
 
 	i = 0;
-	count = 0;
-	if (size == 0)
+	if (!size)
 		return (ft_strlen(src));
-	while (i < (int)(size - 1) && src[i] != '\0')
+	else
 	{
-		dest[i] = src[i];
-		i++;
+		while (i < (size - 1) && src[i])
+		{
+			dest[i] = src[i];
+			i++;
+		}
+		dest[i] = '\0';
+		return (ft_strlen(src));
 	}
-	dest[i] = '\0';
-	return (ft_strlen(src));
 }

@@ -6,7 +6,7 @@
 /*   By: hohnuki <hohnuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 15:43:10 by hohnuki           #+#    #+#             */
-/*   Updated: 2021/10/14 13:38:06 by hohnuki          ###   ########.fr       */
+/*   Updated: 2021/10/18 18:51:24 by hohnuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	*ft_memcpy(void *buf1, const void *buf2, size_t n)
 {
-	int				i;
+	size_t			i;
 	unsigned char	*ptr1;
 	unsigned char	*ptr2;
 
@@ -23,7 +23,7 @@ void	*ft_memcpy(void *buf1, const void *buf2, size_t n)
 	ptr2 = (unsigned char *)buf2;
 	if (!ptr1 && !ptr2)
 		return (NULL);
-	while (i < (int)n)
+	while (i < n)
 	{
 		ptr1[i] = ptr2[i];
 		i++;
