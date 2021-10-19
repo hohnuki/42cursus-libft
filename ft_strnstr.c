@@ -6,7 +6,7 @@
 /*   By: hohnuki <hohnuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 20:41:54 by hohnuki           #+#    #+#             */
-/*   Updated: 2021/10/18 19:09:23 by hohnuki          ###   ########.fr       */
+/*   Updated: 2021/10/19 21:25:21 by hohnuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,51 +14,22 @@
 
 char	*ft_strnstr(const char *s1, const char *s2, size_t size)
 {
-	const char	*p1;
-	const char	*p2;
+	size_t	i;
+	size_t	j;
 
-	p1 = s1;
-	p2 = s2;
-	while (*p1 && *p2 && size >= 1)
+	i = 0;
+	if (s2[0] == '\0')
+		return ((char *)s1);
+	else if (!size)
+		return (NULL);
+	while (s1[i] != '\0' && i < size)
 	{
-		if (*p1 == *p2)
-		{
-			p1++;
-			p2++;
-		}
-		else
-		{
-			p1 -= p2 - s2 - 1;
-			p2 = s2;
-		}
-		size--;
+		j = 0;
+		while (s1[i + j] != '\0' && *s2 && s1[i + j] == s2[j] && i + j < size)
+			j++;
+		if (j == ft_strlen(s2))
+			return ((char *)s1 + i);
+		i++;
 	}
-	if (*p2)
-		return (0);
-	else
-		return ((char *)(p1 - (p2 - s2)));
+	return (0);
 }
-
-//test10
-//#include <stdio.h>
-
-//int main(void)
-//{
-//	char haystack[30] = "aaabcabcd";
-
-//	printf("ft_strnstr = %s\n", ft_strnstr(haystack, "abcd", 9));
-//	printf("%s\n", haystack + 5);
-//}
-
-//test2
-//#include <stdio.h>
-
-//int main(void)
-//{
-//	char haystack[30] = "aaabcabcd";
-//	char needle[10] = "aabc";
-//	//char * empty = (char*)"";
-
-//	printf("ft_strnstr = %s\n", ft_strnstr(haystack, needle, -1));
-//	printf("%s\n", haystack + 1);
-//}
