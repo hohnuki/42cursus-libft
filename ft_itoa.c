@@ -3,19 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hohnuki <hohnuki@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ohnukihiroki <ohnukihiroki@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 17:45:17 by hohnuki           #+#    #+#             */
-/*   Updated: 2021/10/19 17:42:12 by hohnuki          ###   ########.fr       */
+/*   Updated: 2021/10/20 18:15:11 by ohnukihirok      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-char	*set_int_min(void)
-{
-	return (ft_strdup("-2147483648"));
-}
 
 int	int_len(int n)
 {
@@ -32,29 +27,37 @@ int	int_len(int n)
 	return (len_count);
 }
 
-char	*reverse_str(char *str, int len)
+char	*reverse_str(char *str, int max)
 {
 	int		i;
-	int		max;
-	char	*tmp;
+	int		j;
+	char	tmp;
 
 	i = 0;
-	max = len;
-	tmp = (char *)malloc(sizeof(char) * (len + 1));
-	if (str[i] == '-')
+	j = max;
+	if (str[0] != '-')
 	{
-		tmp[i] = str[i];
-		i++;
-		while (i < max + 1)
-			tmp[i++] = str[len--];
+		while (i < (j / 2))
+		{
+			tmp = str[i];
+			str[i] = str[max - 1];
+			str[max - 1] = tmp;
+			i++;
+			max--;
+		}
 	}
 	else
 	{
-		while (i < max)
-			tmp[i++] = str[(len--) - 1];
+		while (i < (j / 2))
+		{
+			tmp = str[i + 1];
+			str[i + 1] = str[max];
+			str[max] = tmp;
+			i++;
+			max--;
+		}
 	}
-	tmp[i] = '\0';
-	return (tmp);
+	return (str);
 }
 
 char	*ft_itoa(int n)
@@ -64,18 +67,17 @@ char	*ft_itoa(int n)
 	int		max;
 	int		i;
 
-	str = NULL;
 	len = int_len(n);
 	max = int_len(n);
 	i = 0;
-	str = (char *)malloc(sizeof(char) * (len + 1));
-	if (!str)
-		return (NULL);
 	if (n == -0 || n == 0)
 		return (ft_strdup("0"));
 	else if (n == -2147483648)
-		return (set_int_min());
-	else if (n < 0)
+		return (ft_strdup("-2147483648"));
+	str = (char *)malloc(sizeof(char) * (len + 1));
+	if (!str)
+		return (NULL);
+	if (n < 0)
 	{
 		str[i++] = '-';
 		n *= -1;
@@ -89,35 +91,3 @@ char	*ft_itoa(int n)
 	str[i] = '\0';
 	return (reverse_str(str, max));
 }
-
-//test7
-// #include <stdio.h>
-// int main(void)
-// {
-// 	char	*i1 = ft_itoa(0);
-
-// 	printf("%s\n", i1);
-//	printf("i1_size = %d, idol_size = 2\n", (int)ft_strlen(i1));
-// }
-
-//test4
-// #include <stdio.h>
-// int main(void)
-// {
-// 	char	*i1 = ft_itoa(-2147483648);
-
-// 	printf("%s\n", i1);
-// }
-
-//test1
-// #include <stdio.h>
-// int main(void)
-// {
-// 	char	*i1 = ft_itoa(-623);
-// 	char	*i2 = ft_itoa(156);
-// 	char	*i3 = ft_itoa(-0);
-
-// 	printf("%s\n", i1);
-// 	printf("%s\n", i2);
-// 	printf("%s\n", i3);
-// }
