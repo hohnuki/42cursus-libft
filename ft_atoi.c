@@ -3,14 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ohnukihiroki <ohnukihiroki@student.42.f    +#+  +:+       +#+        */
+/*   By: hohnuki <hohnuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 14:51:33 by hohnuki           #+#    #+#             */
-/*   Updated: 2021/10/20 21:30:06 by ohnukihirok      ###   ########.fr       */
+/*   Updated: 2021/10/21 15:47:29 by hohnuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+int	check_isspace(char c)
+{
+	if (c == '\t' || c == '\n' || c == '\v'
+		|| c == '\f' || c == '\r' || c == ' ')
+		return (1);
+	return (0);
+}
+
+int	convert_to_negative(int ans, int n_count)
+{
+	if (n_count % 2 == 1)
+		ans *= -1;
+	return (ans);
+}
 
 int	ft_atoi(const char *str)
 {
@@ -23,8 +38,7 @@ int	ft_atoi(const char *str)
 	n_count = 0;
 	p_count = 0;
 	ans = 0;
-	while (str[i] == '\t' || str[i] == '\n' || str[i] == '\v'
-		|| str[i] == '\f' || str[i] == '\r' || str[i] == ' ')
+	while (check_isspace(str[i]) == 1)
 		i++;
 	while (str[i] == '+' || str[i] == '-')
 	{
@@ -38,7 +52,6 @@ int	ft_atoi(const char *str)
 		ans = (ans * 10) + ((str[i++] - '0'));
 	if (p_count > 1 || n_count > 1 || (p_count + n_count) > 1)
 		ans = 0;
-	else if (n_count % 2 == 1)
-		ans *= -1;
+	ans = convert_to_negative(ans, n_count);
 	return (ans);
 }

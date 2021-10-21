@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ohnukihiroki <ohnukihiroki@student.42.f    +#+  +:+       +#+        */
+/*   By: hohnuki <hohnuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 17:45:17 by hohnuki           #+#    #+#             */
-/*   Updated: 2021/10/20 18:15:11 by ohnukihirok      ###   ########.fr       */
+/*   Updated: 2021/10/21 16:37:33 by hohnuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,33 +31,49 @@ char	*reverse_str(char *str, int max)
 {
 	int		i;
 	int		j;
+	int		count;
 	char	tmp;
 
 	i = 0;
 	j = max;
-	if (str[0] != '-')
-	{
-		while (i < (j / 2))
-		{
-			tmp = str[i];
-			str[i] = str[max - 1];
-			str[max - 1] = tmp;
-			i++;
-			max--;
-		}
-	}
+	count = 0;
+	if (str[0] == '-')
+		i++;
 	else
+		max--;
+	while (count < (j / 2))
 	{
-		while (i < (j / 2))
-		{
-			tmp = str[i + 1];
-			str[i + 1] = str[max];
-			str[max] = tmp;
-			i++;
-			max--;
-		}
+		tmp = str[i];
+		str[i] = str[max];
+		str[max] = tmp;
+		i++;
+		max--;
+		count++;
 	}
 	return (str);
+}
+
+void	convert_to_ascii(char *str, int n)
+{
+	int	i;
+	int	len;
+
+	i = 0;
+	len = int_len(n);
+	if (n < 0)
+	{
+		str[i] = '-';
+		n *= -1;
+		i++;
+	}
+	while (len > 0)
+	{
+		str[i] = (n % 10) + '0';
+		n /= 10;
+		len--;
+		i++;
+	}
+	str[i] = '\0';
 }
 
 char	*ft_itoa(int n)
@@ -65,11 +81,9 @@ char	*ft_itoa(int n)
 	char	*str;
 	int		len;
 	int		max;
-	int		i;
 
 	len = int_len(n);
-	max = int_len(n);
-	i = 0;
+	max = len;
 	if (n == -0 || n == 0)
 		return (ft_strdup("0"));
 	else if (n == -2147483648)
@@ -77,17 +91,6 @@ char	*ft_itoa(int n)
 	str = (char *)malloc(sizeof(char) * (len + 1));
 	if (!str)
 		return (NULL);
-	if (n < 0)
-	{
-		str[i++] = '-';
-		n *= -1;
-	}
-	while (len > 0)
-	{
-		str[i++] = (n % 10) + '0';
-		n /= 10;
-		len--;
-	}
-	str[i] = '\0';
+	convert_to_ascii(str, n);
 	return (reverse_str(str, max));
 }

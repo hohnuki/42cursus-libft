@@ -6,7 +6,7 @@
 /*   By: hohnuki <hohnuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 15:46:13 by hohnuki           #+#    #+#             */
-/*   Updated: 2021/10/18 15:12:55 by hohnuki          ###   ########.fr       */
+/*   Updated: 2021/10/21 16:50:34 by hohnuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,30 @@ char	*str_cutter(const char	*s, int start, int end)
 	return (ptr);
 }
 
+void	split_loop(char **split, const char *s, char c)
+{
+	int	start;
+	int	i;
+	int	j;
+
+	start = -1;
+	i = 0;
+	j = 0;
+	while (i <= (int)ft_strlen(s))
+	{
+		if (s[i] != c && start < 0)
+			start = i;
+		else if ((s[i] == c || i == (int)ft_strlen(s)) && start >= 0)
+		{
+			split[j] = str_cutter(s, start, i);
+			start = -1;
+			j++;
+		}
+		i++;
+	}
+	split[j] = (char *) '\0';
+}
+
 char	**ft_split(const char *s, char c)
 {
 	char	**split;
@@ -69,18 +93,6 @@ char	**ft_split(const char *s, char c)
 	split = (char **)malloc(sizeof(char *) * (str_separate_count(s, c) + 1));
 	if (!split)
 		return (NULL);
-	while (i <= (int)ft_strlen(s))
-	{
-		if (s[i] != c && start < 0)
-			start = i;
-		else if ((s[i] == c || i == (int)ft_strlen(s)) && start >= 0)
-		{
-			split[j] = str_cutter(s, start, i);
-			start = -1;
-			j++;
-		}
-		i++;
-	}
-	split[j] = (char *) '\0';
+	split_loop(split, s, c);
 	return (split);
 }

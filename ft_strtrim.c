@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ohnukihiroki <ohnukihiroki@student.42.f    +#+  +:+       +#+        */
+/*   By: hohnuki <hohnuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 20:56:18 by hohnuki           #+#    #+#             */
-/*   Updated: 2021/10/20 16:44:25 by ohnukihirok      ###   ########.fr       */
+/*   Updated: 2021/10/21 14:28:17 by hohnuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ int	find_start_number(const char *str, const char *set)
 	while (i < (int)ft_strlen(str))
 	{
 		if (!ft_strchr(set, str[i]))
-			break;
+			break ;
 		i++;
 	}
-	return(i);
+	return (i);
 }
 
 int	find_end_number(const char *str, const char *set)
@@ -34,10 +34,10 @@ int	find_end_number(const char *str, const char *set)
 	while (str_len >= 0)
 	{
 		if (!ft_strrchr(set, str[str_len]))
-			break;
+			break ;
 		str_len--;
 	}
-	return(str_len + 1);
+	return (str_len + 1);
 }
 
 char	*ft_strtrim(const char *s1, const char *set)
