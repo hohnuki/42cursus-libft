@@ -6,7 +6,7 @@
 /*   By: hohnuki <hohnuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 17:45:17 by hohnuki           #+#    #+#             */
-/*   Updated: 2021/10/21 16:37:33 by hohnuki          ###   ########.fr       */
+/*   Updated: 2021/10/21 19:59:08 by hohnuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ char	*ft_itoa(int n)
 		return (ft_strdup("0"));
 	else if (n == -2147483648)
 		return (ft_strdup("-2147483648"));
-	str = (char *)malloc(sizeof(char) * (len + 1));
+	str = (char *)malloc(sizeof(char) * (len + 2));
 	if (!str)
 		return (NULL);
 	convert_to_ascii(str, n);
