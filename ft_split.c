@@ -6,13 +6,13 @@
 /*   By: hohnuki <hohnuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 15:46:13 by hohnuki           #+#    #+#             */
-/*   Updated: 2021/10/21 16:50:34 by hohnuki          ###   ########.fr       */
+/*   Updated: 2021/10/22 17:22:16 by hohnuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	str_separate_count(const char *s, char c)
+static int	str_separate_count(const char *s, char c)
 {
 	int	i;
 	int	count;
@@ -37,7 +37,7 @@ int	str_separate_count(const char *s, char c)
 	return (count);
 }
 
-char	*str_cutter(const char	*s, int start, int end)
+static char	*str_cutter(const char	*s, int start, int end)
 {
 	char	*ptr;
 	int		i;
@@ -54,7 +54,7 @@ char	*str_cutter(const char	*s, int start, int end)
 	return (ptr);
 }
 
-void	split_loop(char **split, const char *s, char c)
+static void	split_loop(char **split, const char *s, char c)
 {
 	int	start;
 	int	i;

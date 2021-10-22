@@ -6,13 +6,13 @@
 /*   By: hohnuki <hohnuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 17:45:17 by hohnuki           #+#    #+#             */
-/*   Updated: 2021/10/21 19:59:08 by hohnuki          ###   ########.fr       */
+/*   Updated: 2021/10/22 17:21:41 by hohnuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	int_len(int n)
+static int	int_len(int n)
 {
 	int	i;
 	int	len_count;
@@ -27,7 +27,7 @@ int	int_len(int n)
 	return (len_count);
 }
 
-char	*reverse_str(char *str, int max)
+static char	*reverse_str(char *str, int max)
 {
 	int		i;
 	int		j;
@@ -53,7 +53,7 @@ char	*reverse_str(char *str, int max)
 	return (str);
 }
 
-void	convert_to_ascii(char *str, int n)
+static void	convert_to_ascii(char *str, int n)
 {
 	int	i;
 	int	len;
@@ -88,7 +88,10 @@ char	*ft_itoa(int n)
 		return (ft_strdup("0"));
 	else if (n == -2147483648)
 		return (ft_strdup("-2147483648"));
-	str = (char *)malloc(sizeof(char) * (len + 2));
+	if (n < 0)
+		str = (char *)malloc(sizeof(char) * (len + 2));
+	else
+		str = (char *)malloc(sizeof(char) * (len + 1));
 	if (!str)
 		return (NULL);
 	convert_to_ascii(str, n);

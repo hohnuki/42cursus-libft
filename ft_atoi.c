@@ -6,13 +6,13 @@
 /*   By: hohnuki <hohnuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 14:51:33 by hohnuki           #+#    #+#             */
-/*   Updated: 2021/10/21 15:47:29 by hohnuki          ###   ########.fr       */
+/*   Updated: 2021/10/22 17:21:00 by hohnuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	check_isspace(char c)
+static int	check_isspace(char c)
 {
 	if (c == '\t' || c == '\n' || c == '\v'
 		|| c == '\f' || c == '\r' || c == ' ')
@@ -20,7 +20,7 @@ int	check_isspace(char c)
 	return (0);
 }
 
-int	convert_to_negative(int ans, int n_count)
+static int	convert_to_negative(int ans, int n_count)
 {
 	if (n_count % 2 == 1)
 		ans *= -1;

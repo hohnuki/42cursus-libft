@@ -35,13 +35,16 @@ SRC_NAME = ft_isalpha.c \
 			ft_putchar_fd.c \
 			ft_putstr_fd.c \
 			ft_putendl_fd.c \
-			ft_putnbr_fd.c
+			ft_putnbr_fd.c \
+			ft_lstnew.c \
+			ft_lstadd_front.c \
+			ft_lstsize.c \
+			ft_lstlast.c \
+			ft_lstadd_back.c
 
 SRC = $(addprefix $(SRC_PATH), $(SRC_NAME))
-
 SRCO = $(patsubst %.c, %.o, $(SRC))
-
-FLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra
 
 all: $(NAME)
 
@@ -49,7 +52,7 @@ $(NAME): $(SRCO)
 	@ar rc $(NAME) $(SRCO)
 
 $(SRC_PATH)%.o: $(SRC_PATH)%.c
-	@gcc $(FLAGS) -c $< -o $@
+	@gcc $(CFLAGS) -c $< -o $@
 
 clean:
 	@rm -f $(SRCO)

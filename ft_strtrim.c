@@ -6,13 +6,13 @@
 /*   By: hohnuki <hohnuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 20:56:18 by hohnuki           #+#    #+#             */
-/*   Updated: 2021/10/21 14:28:17 by hohnuki          ###   ########.fr       */
+/*   Updated: 2021/10/22 17:23:42 by hohnuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	find_start_number(const char *str, const char *set)
+static int	find_start_number(const char *str, const char *set)
 {
 	int	i;
 
@@ -26,7 +26,7 @@ int	find_start_number(const char *str, const char *set)
 	return (i);
 }
 
-int	find_end_number(const char *str, const char *set)
+static int	find_end_number(const char *str, const char *set)
 {
 	int	str_len;
 
