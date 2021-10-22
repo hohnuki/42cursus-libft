@@ -6,7 +6,7 @@
 /*   By: hohnuki <hohnuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 20:05:07 by hohnuki           #+#    #+#             */
-/*   Updated: 2021/10/21 14:28:56 by hohnuki          ###   ########.fr       */
+/*   Updated: 2021/10/22 19:54:25 by hohnuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,10 @@ char	*ft_substr(const char *s, unsigned int start, size_t len)
 		return (NULL);
 	if (start >= (unsigned int)ft_strlen(s) || !len)
 		return (ft_strdup(""));
-	str = (char *)malloc(sizeof(const char) * (len + 1));
+	if (len <= ft_strlen(s))
+		str = (char *)malloc(sizeof(const char) * (len + 1));
+	else
+		str = (char *)malloc(sizeof(const char) * (ft_strlen(s) + 1));
 	if (!(str))
 		return (NULL);
 	while (len > i && s[start] != '\0')
