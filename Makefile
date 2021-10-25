@@ -6,7 +6,7 @@
 #    By: hohnuki <hohnuki@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/25 14:08:47 by hohnuki           #+#    #+#              #
-#    Updated: 2021/10/25 14:19:49 by hohnuki          ###   ########.fr        #
+#    Updated: 2021/10/25 15:19:03 by hohnuki          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,7 +53,10 @@ SRCS = ft_isalpha.c \
 	ft_lstadd_front.c \
 	ft_lstsize.c \
 	ft_lstlast.c \
-	ft_lstadd_back.c
+	ft_lstadd_back.c \
+	ft_lstdelone.c \
+	ft_lstclear.c \
+	ft_lstiter.c \
 OBJS = $(SRCS:%.c=%.o)
 
 all : $(NAME)
