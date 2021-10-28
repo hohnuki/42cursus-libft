@@ -6,7 +6,7 @@
 /*   By: hohnuki <hohnuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 16:25:10 by hohnuki           #+#    #+#             */
-/*   Updated: 2021/10/25 15:18:30 by hohnuki          ###   ########.fr       */
+/*   Updated: 2021/10/28 18:34:09 by hohnuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <stdlib.h>
 # include <unistd.h>
+# include <limits.h>
 typedef struct s_list
 {
 	void			*content;
