@@ -6,7 +6,7 @@
 /*   By: hohnuki <hohnuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 14:51:33 by hohnuki           #+#    #+#             */
-/*   Updated: 2021/10/28 20:34:21 by hohnuki          ###   ########.fr       */
+/*   Updated: 2021/10/29 15:48:24 by hohnuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,22 @@ static int	check_isspace(char c)
 	return (0);
 }
 
-static long	convert_to_negative(long ans, int n_i)
+static long	convert_to_negative(long ans, int n_i, int p_i)
 {
-	if (n_i % 2 == 1)
+	if (p_i > 1 || n_i > 1 || (p_i + n_i) > 1)
+		ans = 0;
+	else if (n_i % 2 == 1)
 		ans *= -1;
 	return (ans);
+}
+
+static int	check_longMaxMin(long ans, char c, int n_i)
+{
+	if ((ans * 10) + (c - '0') - LONG_MAX >= 0 && n_i % 2 != 1)
+		return (-1);
+	else if ((ans * 10) + (c - '0') + LONG_MIN >= 0 && n_i % 2 == 1)
+		return (0);
+	return (1);
 }
 
 int	ft_atoi(const char *str)
@@ -50,21 +61,12 @@ int	ft_atoi(const char *str)
 	}
 	while (str[i] >= '0' && str[i] <= '9')
 	{
-		if (LONG_MAX / 10 <= ans && str[i] > '7' && n_i % 2 != 1)
-			return (-1);
-		else if (LONG_MIN / 10 >= (-1 * ans) && str[i] >= '8' && n_i % 2 == 1)
-			return (0);
+		if (check_longMaxMin(ans, str[i], n_i) == -1)
+			return ((int)LONG_MAX);
+		else if (check_longMaxMin(ans, str[i], n_i) == 0)
+			return ((int)LONG_MIN);
 		ans = (ans * 10) + ((str[i++] - '0'));
 	}
-	if (p_i > 1 || n_i > 1 || (p_i + n_i) > 1)
-		ans = 0;
-	ans = convert_to_negative(ans, n_i);
+	ans = convert_to_negative(ans, n_i, p_i);
 	return ((int)ans);
 }
-
-//#include <stdio.h>
-//#include <stdlib.h>
-//int main(void)
-//{
-//	printf("atoi = %d, ft_atoi = %d\n", atoi("9223372036854775810"), ft_atoi("9223372036854775810"));
-//}
