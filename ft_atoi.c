@@ -6,7 +6,7 @@
 /*   By: hohnuki <hohnuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 14:51:33 by hohnuki           #+#    #+#             */
-/*   Updated: 2021/10/29 16:32:02 by hohnuki          ###   ########.fr       */
+/*   Updated: 2021/10/29 16:41:12 by hohnuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,15 +71,3 @@ int	ft_atoi(const char *str)
 	}
 	return ((int)(ans * check_negative(n_i, ope_i)));
 }
-
-//#include <stdio.h>
-//#include <stdlib.h>
-//int main(void)
-//{
-//	char c1[40] = "9223372036854775810";
-//	char c2[40] = "9999999999999999999";
-//	char c3[40] = "9223372036854775808";
-//	printf("atoi = %d, ft_atoi = %d\n", atoi(c1), ft_atoi(c1));
-//	printf("atoi = %d, ft_atoi = %d\n", atoi(c2), ft_atoi(c2));
-//	printf("atoi = %d, ft_atoi = %d\n", atoi(c3), ft_atoi(c3));
-//}
