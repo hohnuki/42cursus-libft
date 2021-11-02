@@ -6,7 +6,7 @@
 /*   By: hohnuki <hohnuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/22 18:49:17 by hohnuki           #+#    #+#             */
-/*   Updated: 2021/10/22 19:09:46 by hohnuki          ###   ########.fr       */
+/*   Updated: 2021/11/02 14:07:19 by hohnuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,16 @@
 
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
+	t_list	*tmp;
+
 	if (!lst || !new)
 		return ;
-	while (1)
+	if (*lst)
 	{
-		if (*lst == NULL)
-			break ;
-		lst = &((*lst)->next);
+		tmp = *lst;
+		tmp = ft_lstlast(*lst);
+		tmp->next = new;
 	}
-	new->next = *lst;
-	*lst = new;
+	else
+		*lst = new;
 }
