@@ -6,7 +6,7 @@
 /*   By: hohnuki <hohnuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 15:46:13 by hohnuki           #+#    #+#             */
-/*   Updated: 2021/11/02 18:59:18 by hohnuki          ###   ########.fr       */
+/*   Updated: 2021/11/02 19:29:57 by hohnuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,12 @@ static char	*str_cutter(const char	*s, int start, int end)
 {
 	char	*ptr;
 	int		i;
+	int		len;
 
 	i = 0;
-	ptr = (char *)malloc(sizeof(char) * (end - start + 1));
-	while (start < end)
+	len = end - start;
+	ptr = (char *)malloc(sizeof(char) * (len + 1));
+	while (i < len)
 	{
 		ptr[i] = s[start];
 		i++;
