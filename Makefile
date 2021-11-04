@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ohnukihiroki <ohnukihiroki@student.42.f    +#+  +:+       +#+         #
+#    By: hohnuki <hohnuki@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/01 21:54:36 by ohnukihirok       #+#    #+#              #
-#    Updated: 2021/11/01 22:34:27 by ohnukihirok      ###   ########.fr        #
+#    Updated: 2021/11/04 22:08:09 by hohnuki          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,11 +33,11 @@ AR = ar rcs
 all : $(NAME)
 
 $(NAME) : $(OBJS)
-	$(AR) $(NAME) $(OBJS)
-	ranlib $(NAME)
+	@$(AR) $(NAME) $(OBJS)
+	@ranlib $(NAME)
 
 $(OBJS) : $(SRCS)
-	$(CC) $(CFLAGS) $(SRCS)
+	@$(CC) $(CFLAGS) $(SRCS)
 
 clean :
 	@$(RM) $(OBJS) $(BONUS_OBJS)
@@ -48,8 +48,8 @@ fclean : clean
 re : fclean all
 
 bonus : $(BONUS_SRCS)
-	$(CC) $(CFLAGS) $(BONUS_SRCS)
-	$(AR) $(NAME) $(BONUS_OBJS)
-	ranlib $(NAME)
+	@$(CC) $(CFLAGS) $(BONUS_SRCS)
+	@$(AR) $(NAME) $(BONUS_OBJS)
+	@ranlib $(NAME)
 
 .PHONY : all clean fclean re

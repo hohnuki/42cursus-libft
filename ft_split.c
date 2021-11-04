@@ -6,7 +6,7 @@
 /*   By: hohnuki <hohnuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 15:46:13 by hohnuki           #+#    #+#             */
-/*   Updated: 2021/11/04 17:01:34 by hohnuki          ###   ########.fr       */
+/*   Updated: 2021/11/04 22:05:54 by hohnuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,24 +36,23 @@ static char	*str_cutter(const char	*s, int start, int end)
 static int	str_separate_count(const char *s, char c)
 {
 	int	i;
-	int	count;
-	int	flag;
+	int	ret;
+	int	len;
 
 	i = 0;
-	count = 0;
-	flag = 0;
-	while (s[i])
+	ret = 0;
+	len = (int)ft_strlen(s);
+	while (s[i] != '\0')
 	{
-		if (s[i] == c)
-			flag = 0;
-		else if (s[i] != c && flag == 0)
+		if (s[i] == c && i + 1 < len)
 		{
-			flag = 1;
-			count++;
+			ret++;
+			while (s[i] == c)
+				i++;
 		}
 		i++;
 	}
-	return (count);
+	return (ret);
 }
 
 void	free_splitStr(char **split)
