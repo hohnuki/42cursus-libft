@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ohnukihiroki <ohnukihiroki@student.42.f    +#+  +:+       +#+        */
+/*   By: hohnuki <hohnuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 15:46:13 by hohnuki           #+#    #+#             */
-/*   Updated: 2021/11/05 12:51:39 by ohnukihirok      ###   ########.fr       */
+/*   Updated: 2021/11/05 16:26:48 by hohnuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,28 +69,27 @@ void	free_splitStr(char **split)
 
 static int	split_loop(char **split, const char *s, char c)
 {
-	int	start;
 	int	i;
 	int	j;
-	int	len;
+	int	start;
 
-	start = -1;
 	i = 0;
 	j = 0;
-	len = (int)ft_strlen(s);
-	while (i <= len)
+	start = 0;
+	while (s[i] != '\0')
 	{
-		if (s[i] != c && start < 0)
-			start = i;
-		else if ((s[i] == c || i == len) && start >= 0)
+		if (s[i] == c)
+			i = split_loop_check(s, c, i);
+		else if (s[i] != c)
 		{
+			start = i;
+			while (s[i] != c && i != (int)ft_strlen(s))
+				i++;
 			split[j] = str_cutter(s, start, i);
 			if (!split[j])
 				return (-1);
-			start = -1;
 			j++;
 		}
-		i++;
 	}
 	split[j] = (char *) '\0';
 	return (1);
