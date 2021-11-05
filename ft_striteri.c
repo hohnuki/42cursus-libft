@@ -6,7 +6,7 @@
 /*   By: hohnuki <hohnuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 16:32:00 by hohnuki           #+#    #+#             */
-/*   Updated: 2021/10/22 19:41:45 by hohnuki          ###   ########.fr       */
+/*   Updated: 2021/11/05 16:37:10 by hohnuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_striteri(char *s, void(*f)(unsigned int, char *))
 	unsigned int	i;
 
 	i = 0;
-	if (s == NULL || f == NULL)
+	if (!s || !f)
 		return ;
 	while (s[i] != '\0')
 	{

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ohnukihiroki <ohnukihiroki@student.42.f    +#+  +:+       +#+        */
+/*   By: hohnuki <hohnuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 15:50:13 by hohnuki           #+#    #+#             */
-/*   Updated: 2021/11/01 17:48:26 by ohnukihirok      ###   ########.fr       */
+/*   Updated: 2021/11/05 16:36:56 by hohnuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ char	*ft_strdup(const char *s1)
 	while (s1[num] != '\0')
 		num++;
 	str = (char *)malloc(sizeof(char) * (num + 1));
-	if (str == NULL)
+	if (!str)
 		return (NULL);
 	ft_strcpy(str, s1);
 	return (str);
