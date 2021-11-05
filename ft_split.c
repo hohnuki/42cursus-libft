@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hohnuki <hohnuki@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ohnukihiroki <ohnukihiroki@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 15:46:13 by hohnuki           #+#    #+#             */
-/*   Updated: 2021/11/04 22:05:54 by hohnuki          ###   ########.fr       */
+/*   Updated: 2021/11/05 12:51:39 by ohnukihirok      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,20 +37,19 @@ static int	str_separate_count(const char *s, char c)
 {
 	int	i;
 	int	ret;
-	int	len;
 
 	i = 0;
 	ret = 0;
-	len = (int)ft_strlen(s);
 	while (s[i] != '\0')
 	{
-		if (s[i] == c && i + 1 < len)
+		if (s[i] != c)
 		{
 			ret++;
-			while (s[i] == c)
+			while (s[i] != c && s[i] != '\0')
 				i++;
 		}
-		i++;
+		else
+			i++;
 	}
 	return (ret);
 }
