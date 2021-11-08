@@ -6,7 +6,7 @@
 #    By: hohnuki <hohnuki@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/01 21:54:36 by ohnukihirok       #+#    #+#              #
-#    Updated: 2021/11/04 22:08:09 by hohnuki          ###   ########.fr        #
+#    Updated: 2021/11/08 14:35:49 by hohnuki          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ BONUS_OBJS = $(BONUS_SRCS:.c=.o)
 CFLAGS = -Wall -Werror -Wextra
 CC = gcc -c
 RM = rm -f
-AR = ar rcs
+AR = ar rc
 
 all : $(NAME)
 
