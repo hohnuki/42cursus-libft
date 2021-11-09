@@ -6,7 +6,7 @@
 /*   By: hohnuki <hohnuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 17:08:12 by hohnuki           #+#    #+#             */
-/*   Updated: 2021/11/09 18:50:29 by hohnuki          ###   ########.fr       */
+/*   Updated: 2021/11/09 21:02:48 by hohnuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,9 @@ size_t	ft_strlcat(char *dest, const char *src, size_t destsize)
 		ans = dest_len + src_len;
 	while (src[i] != '\0' && i + first_dest_len < destsize - 1)
 	{
-		dest[dest_len++] = src[i++];
+		dest[dest_len] = src[i];
+		dest_len++;
+		i++;
 	}
 	dest[dest_len] = '\0';
 	return (ans);

@@ -6,7 +6,7 @@
 /*   By: hohnuki <hohnuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 14:51:33 by hohnuki           #+#    #+#             */
-/*   Updated: 2021/11/09 18:57:01 by hohnuki          ###   ########.fr       */
+/*   Updated: 2021/11/09 21:45:31 by hohnuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static int	check_negative(int n_i, int ope_i)
 	return (i);
 }
 
-static int	check_l(long ans, char c, int n_i)
+static int	check_long(long ans, char c, int n_i)
 {
 	if ((ans * 10) + (c - '0') - LONG_MAX >= 0 && n_i % 2 != 1)
 		return (-1);
@@ -65,9 +65,9 @@ int	ft_atoi(const char *str)
 	}
 	while (ft_isdigit(str[i]))
 	{
-		if (check_l(ans, str[i], n_i) == -1 || check_l(ans, str[i], n_i) == 0)
-			return (check_l(ans, str[i], n_i));
+		if (check_long(ans, str[i], n_i) != 1)
+			return (check_long(ans, str[i], n_i));
 		ans = (ans * 10) + ((str[i++] - '0'));
 	}
-	return ((int)(ans * check_negative(n_i, ope_i)));
+	return (ans * check_negative(n_i, ope_i));
 }
