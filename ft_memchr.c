@@ -6,7 +6,7 @@
 /*   By: hohnuki <hohnuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 19:44:54 by hohnuki           #+#    #+#             */
-/*   Updated: 2021/10/18 19:00:20 by hohnuki          ###   ########.fr       */
+/*   Updated: 2021/11/09 17:00:04 by hohnuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,5 @@ void	*ft_memchr(const void *s, int c, size_t n)
 			return (&ptr[i]);
 		i++;
 	}
-	return (0);
+	return (NULL);
 }

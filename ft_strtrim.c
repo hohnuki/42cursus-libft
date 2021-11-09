@@ -6,7 +6,7 @@
 /*   By: hohnuki <hohnuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 20:56:18 by hohnuki           #+#    #+#             */
-/*   Updated: 2021/10/22 17:23:42 by hohnuki          ###   ########.fr       */
+/*   Updated: 2021/11/09 19:36:10 by hohnuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,16 +43,16 @@ static int	find_end_number(const char *str, const char *set)
 char	*ft_strtrim(const char *s1, const char *set)
 {
 	char	*str;
-	int		start;
-	int		end;
-	int		i;
+	size_t	start;
+	size_t	end;
+	size_t	i;
 
-	if (!s1)
+	if (!s1 || !set)
 		return (NULL);
 	start = find_start_number(s1, set);
 	end = find_end_number(s1, set);
 	i = 0;
-	if (!set || (end == 0 && start == (int)ft_strlen(s1)))
+	if (end == 0 && start == ft_strlen(s1))
 		return (ft_strdup(""));
 	str = (char *)malloc(sizeof(char) * (end - start + 1));
 	if (!str)

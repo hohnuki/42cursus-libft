@@ -6,7 +6,7 @@
 /*   By: hohnuki <hohnuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 17:45:17 by hohnuki           #+#    #+#             */
-/*   Updated: 2021/10/22 17:21:41 by hohnuki          ###   ########.fr       */
+/*   Updated: 2021/11/09 19:06:04 by hohnuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,8 @@
 
 static int	int_len(int n)
 {
-	int	i;
 	int	len_count;
 
-	i = 0;
 	len_count = 0;
 	while (n)
 	{

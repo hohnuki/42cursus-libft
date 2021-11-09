@@ -6,7 +6,7 @@
 /*   By: hohnuki <hohnuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 20:28:50 by hohnuki           #+#    #+#             */
-/*   Updated: 2021/10/29 19:12:15 by hohnuki          ###   ########.fr       */
+/*   Updated: 2021/11/09 17:05:45 by hohnuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 char	*ft_strjoin(const char *s1, const char *s2)
 {
-	char	*str;
-	int		i;
+	char		*str;
+	size_t		i;
 
 	i = 0;
 	if (!s1 || !s2)

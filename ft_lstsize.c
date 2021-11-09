@@ -6,7 +6,7 @@
 /*   By: hohnuki <hohnuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/22 18:35:01 by hohnuki           #+#    #+#             */
-/*   Updated: 2021/10/22 18:40:37 by hohnuki          ###   ########.fr       */
+/*   Updated: 2021/11/09 19:07:35 by hohnuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_lstsize(t_list *lst)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	while (lst != NULL)

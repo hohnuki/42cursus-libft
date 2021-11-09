@@ -6,35 +6,35 @@
 /*   By: hohnuki <hohnuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 15:50:13 by hohnuki           #+#    #+#             */
-/*   Updated: 2021/11/05 16:36:56 by hohnuki          ###   ########.fr       */
+/*   Updated: 2021/11/09 18:36:01 by hohnuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcpy(char *s1, const char *s2)
+static char	*ft_strcpy(char *s1, const char *s2)
 {
-	int	count;
+	size_t	i;
 
-	count = 0;
-	while (s2[count] != '\0')
+	i = 0;
+	while (s2[i] != '\0')
 	{
-		s1[count] = s2[count];
-		count++;
+		s1[i] = s2[i];
+		i++;
 	}
-	s1[count] = '\0';
+	s1[i] = '\0';
 	return (s1);
 }
 
 char	*ft_strdup(const char *s1)
 {
 	char	*str;
-	int		num;
+	size_t	i;
 
-	num = 0;
-	while (s1[num] != '\0')
-		num++;
-	str = (char *)malloc(sizeof(char) * (num + 1));
+	i = 0;
+	while (s1[i] != '\0')
+		i++;
+	str = (char *)malloc(sizeof(char) * (i + 1));
 	if (!str)
 		return (NULL);
 	ft_strcpy(str, s1);

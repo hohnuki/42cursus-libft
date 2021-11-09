@@ -6,7 +6,7 @@
 /*   By: hohnuki <hohnuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 16:25:10 by hohnuki           #+#    #+#             */
-/*   Updated: 2021/11/05 16:23:16 by hohnuki          ###   ########.fr       */
+/*   Updated: 2021/11/09 19:20:13 by hohnuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ char	*ft_strnstr(const char *s1, const char *s2, size_t size);
 int		ft_atoi(const char *str);
 void	*ft_calloc(size_t n, size_t size);
 char	*ft_strdup(const char *s1);
-char	*ft_strcpy(char *s1, const char *s2);
 char	*ft_substr(const char *s, unsigned int start, size_t len);
 char	*ft_strjoin(const char *s1, const char *s2);
 char	*ft_strtrim(const char *s1, const char *set);
@@ -66,6 +65,6 @@ void	ft_lstadd_back(t_list **lst, t_list *new);
 void	ft_lstdelone(t_list *lst, void (*del)(void*));
 void	ft_lstclear(t_list **lst, void (*del)(void*));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
-int		split_loop_check(const char *s, char c, int i);
+int		split_loop_check(const char *s, char c, size_t i);
 
 #endif

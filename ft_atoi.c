@@ -6,7 +6,7 @@
 /*   By: hohnuki <hohnuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 14:51:33 by hohnuki           #+#    #+#             */
-/*   Updated: 2021/10/29 18:50:39 by hohnuki          ###   ########.fr       */
+/*   Updated: 2021/11/09 18:57:01 by hohnuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ static int	check_isspace(char c)
 	return (0);
 }
 
-static long	check_negative(int n_i, int ope_i)
+static int	check_negative(int n_i, int ope_i)
 {
-	long	i;
+	int	i;
 
 	i = 0;
 	if (ope_i > 1 || n_i > 1)
@@ -45,10 +45,10 @@ static int	check_l(long ans, char c, int n_i)
 
 int	ft_atoi(const char *str)
 {
-	int		i;
-	int		n_i;
-	int		ope_i;
-	long	ans;
+	size_t		i;
+	int			n_i;
+	int			ope_i;
+	long long	ans;
 
 	i = 0;
 	n_i = 0;
@@ -63,7 +63,7 @@ int	ft_atoi(const char *str)
 		ope_i++;
 		i++;
 	}
-	while (str[i] >= '0' && str[i] <= '9')
+	while (ft_isdigit(str[i]))
 	{
 		if (check_l(ans, str[i], n_i) == -1 || check_l(ans, str[i], n_i) == 0)
 			return (check_l(ans, str[i], n_i));
