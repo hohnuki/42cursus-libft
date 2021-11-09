@@ -6,7 +6,7 @@
 /*   By: hohnuki <hohnuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 14:42:09 by hohnuki           #+#    #+#             */
-/*   Updated: 2021/11/09 14:46:54 by hohnuki          ###   ########.fr       */
+/*   Updated: 2021/11/09 20:24:08 by hohnuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
 	t_list	*tmp;
 
-	if (!lst || !del)
+	if (!del || !*lst || !lst)
 		return ;
 	while (*lst != NULL)
 	{
