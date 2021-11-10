@@ -6,13 +6,11 @@
 /*   By: ohnukihiroki <ohnukihiroki@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 20:56:18 by hohnuki           #+#    #+#             */
-/*   Updated: 2021/11/10 16:29:03 by ohnukihirok      ###   ########.fr       */
+/*   Updated: 2021/11/10 18:12:51 by ohnukihirok      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#define TRIM_SET_PLACEHOLDER " \n\t"
-#include <stdio.h>
 
 static size_t	find_start_number(const char *str, const char *set)
 {
