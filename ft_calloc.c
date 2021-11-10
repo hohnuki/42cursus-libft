@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hohnuki <hohnuki@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ohnukihiroki <ohnukihiroki@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 15:45:28 by hohnuki           #+#    #+#             */
-/*   Updated: 2021/11/09 18:57:28 by hohnuki          ###   ########.fr       */
+/*   Updated: 2021/11/10 15:04:38 by ohnukihirok      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,6 @@ void	*ft_calloc(size_t n, size_t size)
 	ptr = (char *)malloc(size * n);
 	if (!ptr)
 		return (NULL);
-	while (i < (size * n))
-	{
-		ptr[i] = '\0';
-		i++;
-	}
+	ft_bzero(ptr, (size * n));
 	return ((void *)ptr);
 }

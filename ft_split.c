@@ -3,20 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hohnuki <hohnuki@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ohnukihiroki <ohnukihiroki@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 15:46:13 by hohnuki           #+#    #+#             */
-/*   Updated: 2021/11/09 19:21:47 by hohnuki          ###   ########.fr       */
+/*   Updated: 2021/11/10 15:47:16 by ohnukihirok      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char	*str_cutter(const char	*s, int start, int end)
+static char	*str_cutter(const char	*s, size_t start, size_t end)
 {
 	char	*ptr;
-	int		i;
-	int		len;
+	size_t	i;
+	size_t	len;
 
 	i = 0;
 	len = end - start;
@@ -33,10 +33,10 @@ static char	*str_cutter(const char	*s, int start, int end)
 	return (ptr);
 }
 
-static int	str_separate_count(const char *s, char c)
+static size_t	str_separate_count(const char *s, char c)
 {
 	size_t	i;
-	int		ret;
+	size_t	ret;
 
 	i = 0;
 	ret = 0;

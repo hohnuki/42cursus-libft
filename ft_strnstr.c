@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hohnuki <hohnuki@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ohnukihiroki <ohnukihiroki@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 20:41:54 by hohnuki           #+#    #+#             */
-/*   Updated: 2021/11/09 14:02:24 by hohnuki          ###   ########.fr       */
+/*   Updated: 2021/11/10 16:04:19 by ohnukihirok      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_strnstr(const char *s1, const char *s2, size_t size)
 	size_t	j;
 
 	i = 0;
-	if (s2[0] == '\0')
+	if (s2[i] == '\0')
 		return ((char *)s1);
 	else if (!size)
 		return (NULL);
@@ -31,5 +31,5 @@ char	*ft_strnstr(const char *s1, const char *s2, size_t size)
 			return ((char *)s1 + i);
 		i++;
 	}
-	return (0);
+	return (NULL);
 }

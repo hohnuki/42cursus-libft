@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hohnuki <hohnuki@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ohnukihiroki <ohnukihiroki@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 13:38:17 by hohnuki           #+#    #+#             */
-/*   Updated: 2021/10/07 18:14:30 by hohnuki          ###   ########.fr       */
+/*   Updated: 2021/11/10 15:09:31 by ohnukihirok      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_isprint(int c)
 {
-	if (!(c >= ' ' && c <= '~'))
-		return (0);
-	return (1);
+	if (' ' <= c && c <= '~')
+		return (1);
+	return (0);
 }

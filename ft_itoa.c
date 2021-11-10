@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hohnuki <hohnuki@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ohnukihiroki <ohnukihiroki@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 17:45:17 by hohnuki           #+#    #+#             */
-/*   Updated: 2021/11/09 19:06:04 by hohnuki          ###   ########.fr       */
+/*   Updated: 2021/11/10 15:31:03 by ohnukihirok      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	int_len(int n)
+static int	count_len(int n)
 {
 	int	len_count;
 
@@ -57,7 +57,7 @@ static void	convert_to_ascii(char *str, int n)
 	int	len;
 
 	i = 0;
-	len = int_len(n);
+	len = count_len(n);
 	if (n < 0)
 	{
 		str[i] = '-';
@@ -80,7 +80,7 @@ char	*ft_itoa(int n)
 	int		len;
 	int		max;
 
-	len = int_len(n);
+	len = count_len(n);
 	max = len;
 	if (n == -0 || n == 0)
 		return (ft_strdup("0"));

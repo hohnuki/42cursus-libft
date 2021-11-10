@@ -3,21 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hohnuki <hohnuki@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ohnukihiroki <ohnukihiroki@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 20:56:18 by hohnuki           #+#    #+#             */
-/*   Updated: 2021/11/09 19:36:10 by hohnuki          ###   ########.fr       */
+/*   Updated: 2021/11/10 16:29:03 by ohnukihirok      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#define TRIM_SET_PLACEHOLDER " \n\t"
+#include <stdio.h>
 
-static int	find_start_number(const char *str, const char *set)
+static size_t	find_start_number(const char *str, const char *set)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
-	while (i < (int)ft_strlen(str))
+	while (i < ft_strlen(str))
 	{
 		if (!ft_strchr(set, str[i]))
 			break ;
@@ -26,15 +28,17 @@ static int	find_start_number(const char *str, const char *set)
 	return (i);
 }
 
-static int	find_end_number(const char *str, const char *set)
+static size_t	find_end_number(const char *str, const char *set)
 {
-	int	str_len;
+	size_t	str_len;
 
-	str_len = (int)ft_strlen(str);
+	str_len = ft_strlen(str);
 	while (str_len >= 0)
 	{
 		if (!ft_strrchr(set, str[str_len]))
 			break ;
+		if (str_len == 0)
+			return (0);
 		str_len--;
 	}
 	return (str_len + 1);

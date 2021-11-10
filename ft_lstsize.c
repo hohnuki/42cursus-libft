@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hohnuki <hohnuki@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ohnukihiroki <ohnukihiroki@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/22 18:35:01 by hohnuki           #+#    #+#             */
-/*   Updated: 2021/11/09 19:07:35 by hohnuki          ###   ########.fr       */
+/*   Updated: 2021/11/10 16:50:48 by ohnukihirok      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	ft_lstsize(t_list *lst)
 	size_t	i;
 
 	i = 0;
-	while (lst != NULL)
+	while (lst)
 	{
 		lst = lst->next;
 		i++;
