@@ -6,7 +6,7 @@
 /*   By: hohnuki <hohnuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 18:28:18 by hohnuki           #+#    #+#             */
-/*   Updated: 2021/11/09 17:02:14 by hohnuki          ###   ########.fr       */
+/*   Updated: 2021/11/11 18:11:48 by hohnuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_strchr(const char *s, int c)
 
 	len = ft_strlen(s);
 	i = 0;
-	while (i < (len + 1))
+	while (i <= len)
 	{
 		if (s[i] == (char)c)
 			return ((char *)&s[i]);

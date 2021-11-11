@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ohnukihiroki <ohnukihiroki@student.42.f    +#+  +:+       +#+        */
+/*   By: hohnuki <hohnuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/22 16:25:03 by hohnuki           #+#    #+#             */
-/*   Updated: 2021/11/10 17:39:19 by ohnukihirok      ###   ########.fr       */
+/*   Updated: 2021/11/11 22:02:37 by hohnuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,11 @@ void	ft_lstadd_front(t_list **lst, t_list *new)
 	{
 		new->next = *lst;
 		*lst = new;
+	}
+	else if (!lst && !*lst)
+	{
+		*lst = new;
+		//*lst->next = NULL;
+		new->next = NULL;
 	}
 }
