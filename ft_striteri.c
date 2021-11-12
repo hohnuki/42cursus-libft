@@ -6,7 +6,7 @@
 /*   By: hohnuki <hohnuki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 16:32:00 by hohnuki           #+#    #+#             */
-/*   Updated: 2021/11/09 21:21:24 by hohnuki          ###   ########.fr       */
+/*   Updated: 2021/11/12 15:53:55 by hohnuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	ft_striteri(char *s, void(*f)(unsigned int, char *))
 		return ;
 	while (s[i] != '\0')
 	{
-		f(i, &s[i]);
+		f(i, s);
 		i++;
 	}
 }
