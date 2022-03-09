@@ -54,7 +54,7 @@ static size_t	str_separate_count(const char *s, char c)
 	return (ret);
 }
 
-void	free_splitStr(char **split)
+void	free_split_str(char **split)
 {
 	size_t	i;
 
