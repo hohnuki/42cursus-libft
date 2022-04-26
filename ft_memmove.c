@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hohnuki <hohnuki@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ohnukihiroki <ohnukihiroki@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 15:59:47 by hohnuki           #+#    #+#             */
-/*   Updated: 2021/11/11 15:41:33 by hohnuki          ###   ########.fr       */
+/*   Updated: 2022/04/26 23:01:16 by ohnukihirok      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,17 @@
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	unsigned char	*ptr1;
-	unsigned char	*ptr2;
-
-	ptr1 = (unsigned char *)dst;
-	ptr2 = (unsigned char *)src;
-	if (!ptr1 && !ptr2)
+	if (dst == NULL && src == NULL)
 		return (NULL);
 	if (dst > src)
 	{
 		while (len > 0)
 		{
-			ptr1[len - 1] = ptr2[len - 1];
+			((unsigned char *)dst)[len - 1] = ((unsigned char *)src)[len - 1];
 			len--;
 		}
 	}
 	else
-	{
 		ft_memcpy(dst, src, len);
-	}
 	return (dst);
 }
